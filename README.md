@@ -1,11 +1,36 @@
-This is a ionic2 sample for starter.
+## This is a ionic2 sample for starter.
 
 1. Follow normal ionic document, generate ionic2 project.
     * normal, no problem.
 2. Run.
-    * Have some issue
+    * Have some issue, below "issue resolve" is detail.
+3. Deploy
+    * android apk generate (platforms/android/build/outputs/apk/android-debug.apk)
 
-#### below is issue resolve
+    ```
+    ionic cordova platform build android
+    ```
+    * ios ipa generate (temp-download/ionicSample.ipa)
+
+    ```
+    //generate archive file first
+    xcodebuild -scheme ionicSample clean archive -archivePath platforms/ios/build/ionicSample
+    //then generate .ipa and .plist
+    xcodebuild -exportArchive ipa -archivePath "platforms/ios/build/ionicSample.xcarchive" -exportPath "temp-download/ionicSample.ipa" -exportOptionsPlist "temp-download/manifest.plist"
+    ```
+    * temp-download folder is for download link to store install file.
+
+### usual cmd
+```
+ionic serve
+ionic cordova platform add ios/android
+ionic cordova platform remove ios/android
+ionic cordova platform build ios/android
+ionic cordova platform run ios/android
+npm run build (build android and ios and generate apk and ipa  and delpy to server than can download from link)
+```
+
+### issue resolve
 * Before add platform, need to change config.xml about id and name
 * 'ios cordova run ios' will show error like "replace is undefined", 
     - change /platforms/ios/cordova/node_modules/ios-sim/src/lib.js:282
@@ -35,33 +60,6 @@ list = [];
                     target = emulator;
                 }
             });
-```
-
-3. Deploy
-
-* android apk generate (platforms/android/build/outputs/apk/android-debug.apk)
-
-    ```
-    ionic cordova platform build android
-    ```
-* ios ipa generate (temp-download/ionicSample.ipa)
-
-    ```
-    //generate archive file first
-    xcodebuild -scheme ionicSample clean archive -archivePath platforms/ios/build/ionicSample
-    //then generate .ipa and .plist
-    xcodebuild -exportArchive ipa -archivePath "platforms/ios/build/ionicSample.xcarchive" -exportPath "temp-download/ionicSample.ipa" -exportOptionsPlist "temp-download/manifest.plist"
-    ```
-* temp-download folder is for download link to store install file.
-
-### usual cmd
-```
-ionic serve
-ionic cordova platform add ios/android
-ionic cordova platform remove ios/android
-ionic cordova platform build ios/android
-ionic cordova platform run ios/android
-npm run build (build android and ios and generate apk and ipa  and delpy to server than can download from link)
 ```
 
 
