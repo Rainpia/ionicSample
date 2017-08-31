@@ -1,8 +1,5 @@
 <ion-col>
-  <ion-item>
-    1
-  </ion-item>
-   <ion-item>
-    1
+  <ion-item *ngFor="let item of lists">
+    {{item.label}}
   </ion-item>
 </ion-col>
