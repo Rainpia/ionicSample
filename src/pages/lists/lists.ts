@@ -14,12 +14,26 @@ export class ListsPage {
     this.listService.getLists()
     .then(
       data => {
-        console.log(data);
         this.lists = data;
       },
       error =>{
         console.log(error);
       }
     );
+  }
+  doInfinite(infiniteScroll) {
+    console.log('Begin async operation');
+    return this.listService.getLists()
+            .then(
+              data => {
+                if(this.lists.length<30){
+                  this.lists = this.lists.concat(data);
+                }
+                infiniteScroll.complete();
+              },
+              error =>{
+                console.log(error);
+              }
+            );
   }
 }
