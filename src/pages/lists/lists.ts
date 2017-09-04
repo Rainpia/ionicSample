@@ -21,6 +21,9 @@ export class ListsPage {
       }
     );
   }
+  delete(itemInd) {
+    this.lists.splice(itemInd,1);
+  }
   doInfinite(infiniteScroll) {
     console.log('Begin async operation');
     return this.listService.getLists()
