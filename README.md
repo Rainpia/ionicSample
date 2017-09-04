@@ -27,7 +27,7 @@ ionic cordova platform add ios/android
 ionic cordova platform remove ios/android
 ionic cordova platform build ios/android
 ionic cordova platform run ios/android
-npm run build (build android and ios and generate apk and ipa  and delpy to server than can download from link)
+npm run build (build android and generate apk, and delpy to server than can download from link)
 ```
 
 ### issue resolve
