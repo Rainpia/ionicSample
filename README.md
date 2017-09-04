@@ -3,14 +3,14 @@
 1. Follow normal ionic document, generate ionic2 project.
     * normal, no problem.
 2. Run.
-    * Have some issue, below "issue resolve" is detail.
+    * Have some issue, below "Issue resolve" is detail.
 3. Deploy
     * android apk generate (platforms/android/build/outputs/apk/android-debug.apk)
 
     ```
     ionic cordova platform build android
     ```
-    * ios ipa generate (temp-download/ionicSample.ipa)
+    * ios ipa generate (xcodebuild cmd can use only under the ios project folder)
 
     ```
     //generate archive file first
@@ -20,7 +20,7 @@
     ```
     * temp-download folder is for download link to store install file.
 
-### usual cmd
+### Usual cmd
 ```
 ionic serve
 ionic cordova platform add ios/android
@@ -30,7 +30,7 @@ ionic cordova platform run ios/android
 npm run build (build android and generate apk, and delpy to server than can download from link)
 ```
 
-### issue resolve
+### Issue resolve
 * Before add platform, need to change config.xml about id and name
 * 'ios cordova run ios' will show error like "replace is undefined", 
     - change /platforms/ios/cordova/node_modules/ios-sim/src/lib.js:282
