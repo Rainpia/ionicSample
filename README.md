@@ -61,6 +61,23 @@ list = [];
                 }
             });
 ```
+### Deploy android
+```
+1. ionic cordova build android
+2. rm -rf temp-download/android-debug.apk
+3. cp -R platforms/android/build/outputs/apk/android-debug.apk temp-download
+4. scp -r temp-download/** dan@192.168.1.43:/Users/dan/docker/www/temp-download
+```
+### Deploy IOS
+```
+1. ionic cordova build ios
+2. cd platforms/ios
+3. xcodebuild -scheme ionicSample clean archive -archivePath build/ionicSample
+4. xcodebuild -exportArchive ipa -archivePath "build/ionicSample.xcarchive" -exportPath "../../temp-download/ionicSample.ipa" -exportOptionsPlist "../../temp-download/manifest.plist"
+5. cd ..
+6. cd ..
+7. scp -r temp-download/** dan@192.168.1.43:/Users/dan/docker/www/temp-download
+```
 
 
 
