@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { Http } from "@angular/http";
+
+import {ListService} from "./../../services/list.service"
 
 
 @Component({
@@ -7,16 +8,18 @@ import { Http } from "@angular/http";
 })
 export class ListsPage {
   lists:Array<{id:number,label:string}>;
-  constructor(private http:Http) {
-    this.getList();
-    
+  constructor(private listService:ListService) {
   }
-
-  getList (){
-    this.http
-      .get('assets/data/list.json')
-      .subscribe((result)=>{
-        this.lists = result.json();
-      });
+  ngOnInit(): void {
+    this.listService.getLists()
+    .then(
+      data => {
+        console.log(data);
+        this.lists = data;
+      },
+      error =>{
+        console.log(error);
+      }
+    );
   }
 }
