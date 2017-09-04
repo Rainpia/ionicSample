@@ -1,8 +1,14 @@
 <ion-content>
   <ion-col>
     <ion-list>
-      <ion-item-sliding *ngFor="let item of lists ; let i = index">
+      <ion-item-divider>
+        COUNTRY
+      </ion-item-divider>
+      <ion-item-sliding detail-push *ngFor="let item of lists ; let i = index">
         <ion-item>
+          <ion-avatar item-start>
+            <img src="assets/icon/favicon.ico">
+          </ion-avatar>
           {{item.label}}
         </ion-item>
         <ion-item-options side="right">
