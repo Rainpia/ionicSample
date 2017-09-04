@@ -14,9 +14,9 @@
 
     ```
     //generate archive file first
-    xcodebuild -scheme ionicSample clean archive -archivePath platforms/ios/build/ionicSample
+    xcodebuild -scheme ionicSample clean archive -archivePath build/ionicSample
     //then generate .ipa and .plist
-    xcodebuild -exportArchive ipa -archivePath "platforms/ios/build/ionicSample.xcarchive" -exportPath "temp-download/ionicSample.ipa" -exportOptionsPlist "temp-download/manifest.plist"
+    xcodebuild -exportArchive ipa -archivePath "build/ionicSample.xcarchive" -exportPath "../../temp-download/ionicSample.ipa" -exportOptionsPlist "../../temp-download/manifest.plist"
     ```
     * temp-download folder is for download link to store install file.
 
